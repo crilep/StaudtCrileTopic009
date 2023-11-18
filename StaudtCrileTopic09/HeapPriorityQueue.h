@@ -2,8 +2,6 @@
  @file HeapPriorityQueue.h */
 
 #pragma once
- //#ifndef HEAP_PRIORITY_QUEUE_
- //#define HEAP_PRIORITY_QUEUE_
 #include "ArrayMaxHeap.h"
 #include "PriorityQueueInterface.h"
 
@@ -20,6 +18,3 @@ public:
     /** @pre The priority queue is not empty. */
     ItemType peekFront() const throw(PrecondViolatedExcept);
 }; // end HeapPriorityQueue
-
-//#include "HeapPriorityQueue.cpp"
-//#endif

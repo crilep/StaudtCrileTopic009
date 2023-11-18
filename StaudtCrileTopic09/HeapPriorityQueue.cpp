@@ -47,5 +47,4 @@ void HeapPriorityQueue<ItemType>::traverse() {
 
     ArrayMaxHeap<ItemType>::traverseHeap();
 
-
 }
