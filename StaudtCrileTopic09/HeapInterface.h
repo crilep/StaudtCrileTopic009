@@ -2,8 +2,6 @@
  @file HeapInterface.h */
 
 #pragma once
- //#ifndef HEAP_INTERFACE_
- //#define HEAP_INTERFACE_
 #include <string>
 
 struct toDo {
@@ -64,4 +62,4 @@ public:
     virtual ~HeapInterface() { }
 };
 
-//#endif // end HeapInterface
+// end HeapInterface

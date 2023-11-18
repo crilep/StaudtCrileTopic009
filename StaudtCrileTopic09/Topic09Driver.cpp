@@ -32,13 +32,15 @@ int main() {
 
         case 1: {
 
+            // Read in user input
             cin.ignore();
             cout << "\nTask: ";
             getline(cin, task);
             cout << "\nPriority: ";
             cin >> prior;
-            cin.ignore(); //
+            cin.ignore();
 
+            // Add task
             toDo toDoObj = { task, prior };
             toDoHeapQueue.enqueue(toDoObj);
 
@@ -47,25 +49,33 @@ int main() {
 
         case 2: {
 
+            // Remove task
             if (toDoHeapQueue.dequeue())
                 cout << "\nTask removed!";
             else
                 cout << "\nFailed to remove task";
-
 
         }
               break;
 
         case 3: {
 
+            // Display priority heap
             toDoHeapQueue.traverse();
+
+        }
+        case 4: {
+
+            // Exit
+            cout << "\nExiting...\n";
 
         }
               break;
 
         default: {
 
-
+            // Default
+            cout << "\nThat was not a valid input...\n";
 
         }
                break;

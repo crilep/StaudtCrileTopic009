@@ -1,5 +1,4 @@
 
-// make sure to remove this ig
 #include "ArrayMaxHeap.h"
 #include<iostream>
 
@@ -63,14 +62,6 @@ bool ArrayMaxHeap<ItemType>::isLeaf(int nodeIndex) const {
 template<class ItemType>
 void ArrayMaxHeap<ItemType>::heapRebuild(int nodeIndex) {
 
-    /*
-    if (!isLeaf)
-
-    */
-
-
-
-
     int left = getLeftChildIndex(nodeIndex);
     int right = getRightChildIndex(nodeIndex);
     int largest = nodeIndex;
@@ -120,17 +111,19 @@ void ArrayMaxHeap<ItemType>::heapCreate() {
 
 }
 
-
+// Returns if the heap is empty or not
 template<class ItemType>
 bool ArrayMaxHeap<ItemType>::isEmpty() const {
     return items.size() == 0;
 }
 
+// Returns the number of nodes in the heap
 template<class ItemType>
 int ArrayMaxHeap<ItemType>::getNumberOfNodes() const {
     return items.size();
 }
 
+// Returns the height of the heap
 template<class ItemType>
 int ArrayMaxHeap<ItemType>::getHeight() const {
 
@@ -154,18 +147,27 @@ int ArrayMaxHeap<ItemType>::getHeight() const {
 
 }
 
+// Returns the max item in the heap
 template<class ItemType>
 ItemType ArrayMaxHeap<ItemType>::peekTop() const throw(PrecondViolatedExcept) {
 
+    // If the heap is not empty
     if (items.size() != 0)
         return items.at(0);
     else
         throw new PrecondViolatedExcept("The heap is empty");
 }
 
-
+// Adds an item to the heap
 template<class ItemType>
 bool ArrayMaxHeap<ItemType>::add(const ItemType& newData) {
+
+    // Check if a task was given
+    if (newData.task.empty()) {
+        std::cout << "\nYou failed to enter a task, no item was added...\n";
+        return false;
+    }
+
     // Add the new element at the end of the array
     items.push_back(newData);
 
@@ -177,10 +179,13 @@ bool ArrayMaxHeap<ItemType>::add(const ItemType& newData) {
         std::swap(items[i], items[getParentIndex(i)]);
         i = getParentIndex(i);
     }
+    
+    heapRebuild(0);
 
     return true; // Indicate that the element was successfully added
 }
 
+// Removes an item from the heap
 template<class ItemType>
 bool ArrayMaxHeap<ItemType>::remove() {
 
@@ -198,11 +203,13 @@ bool ArrayMaxHeap<ItemType>::remove() {
     return true;
 }
 
+// Clears the heap
 template<class ItemType>
 void ArrayMaxHeap<ItemType>::clear() {
     items.clear();
 }
 
+// Traverses the heap
 template<class ItemType>
 void ArrayMaxHeap<ItemType>::traverseHeap() {
     

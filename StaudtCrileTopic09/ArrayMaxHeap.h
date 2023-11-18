@@ -2,8 +2,6 @@
  @file ArrayMaxHeap.h */
 
 #pragma once
- //#ifndef ARRAY_MAX_HEAP_
- //#define ARRAY_MAX_HEAP_
 #include <memory>
 #include<vector>
 #include "HeapInterface.h"
@@ -66,6 +64,3 @@ public:
 }; // end ArrayMaxHeap
 
 template class ArrayMaxHeap<toDo>;
-
-//#include "ArrayMaxHeap.cpp"
-//#endif
